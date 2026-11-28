@@ -21,12 +21,22 @@
 
             <div class="formulario">
                 <input type="text" id="nova-tarefa"
-                       placeholder="Digite uma tarefa">
+                       placeholder="Digite uma tarefa"
+                       aria-describedby="mensagem-erro">
 
-                <button type="submit" class="btn-adicionar">
-                    Adicionar
+                <button type="submit" class="btn-adicionar"
+                        id="btn-adicionar">
+
+                    <span id="spinner" class="spinner" hidden></span>
+
+                    <span id="texto-botao">Adicionar</span>
+
                 </button>
             </div>
+
+            <p id="mensagem-erro" class="mensagem-erro"
+               role="alert"></p>
+
         </form>
 
         <div class="filtros">
@@ -57,7 +67,7 @@
     </main>
 
     <footer>
-        <p>Task List - 2026</p>
+        <p>Task List - 2026 | Versão 1.0.0</p>
     </footer>
 
     <script src="formulario.js"></script>

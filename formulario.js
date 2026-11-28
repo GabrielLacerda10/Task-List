@@ -2,23 +2,67 @@ const formulario = document.getElementById("form-tarefa");
 const input = document.getElementById("nova-tarefa");
 const lista = document.querySelector(".lista-tarefas");
 
+const mensagemErro = document.getElementById("mensagem-erro");
+const botaoAdicionar = document.getElementById("btn-adicionar");
+const spinner = document.getElementById("spinner");
+const textoBotao = document.getElementById("texto-botao");
+
 formulario.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const tarefa = document.createElement("li");
-    tarefa.classList.add("tarefa");
+    const valor = input.value.trim();
 
-    const nome = document.createElement("span");
-    nome.textContent = input.value;
+    // Validação do campo vazio
+    if (valor === "") {
+        mensagemErro.textContent = "Digite uma tarefa antes de adicionar!";
+        input.classList.add("campo-invalido");
+        input.setAttribute("aria-invalid", "true");
+        input.focus();
+        return;
+    }
 
-    const status = document.createElement("span");
-    status.textContent = "Pendente";
-    status.classList.add("pendente");
+    mensagemErro.textContent = "";
+    input.classList.remove("campo-invalido");
+    input.removeAttribute("aria-invalid");
 
-    tarefa.appendChild(nome);
-    tarefa.appendChild(status);
+    // Ativar loading
+    spinner.hidden = false;
+    textoBotao.textContent = "Adicionando...";
+    botaoAdicionar.disabled = true;
+    input.disabled = true;
 
-    lista.appendChild(tarefa);
+    setTimeout(function() {
 
-    input.value = "";
+        const tarefa = document.createElement("li");
+        tarefa.classList.add("tarefa");
+
+        const nome = document.createElement("span");
+        nome.textContent = valor;
+
+        const status = document.createElement("span");
+        status.textContent = "Pendente";
+        status.classList.add("pendente");
+
+        tarefa.appendChild(nome);
+        tarefa.appendChild(status);
+
+        lista.appendChild(tarefa);
+
+        input.value = "";
+
+        // Desativar loading
+        spinner.hidden = true;
+        textoBotao.textContent = "Adicionar";
+        botaoAdicionar.disabled = false;
+        input.disabled = false;
+
+        input.focus();
+
+    }, 1000);
+});
+
+input.addEventListener("input", function() {
+    mensagemErro.textContent = "";
+    input.classList.remove("campo-invalido");
+    input.removeAttribute("aria-invalid");
 });
