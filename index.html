@@ -16,6 +16,19 @@
     <main>
         <h2>Minhas tarefas</h2>
 
+        <form id="form-tarefa">
+            <label for="nova-tarefa">Nova tarefa</label>
+
+            <div class="formulario">
+                <input type="text" id="nova-tarefa"
+                       placeholder="Digite uma tarefa">
+
+                <button type="submit" class="btn-adicionar">
+                    Adicionar
+                </button>
+            </div>
+        </form>
+
         <div class="filtros">
             <button type="button" class="btn-filtro" data-filtro="todas">
                 Todas
@@ -47,6 +60,7 @@
         <p>Task List - 2026</p>
     </footer>
 
+    <script src="formulario.js"></script>
     <script src="filtro.js"></script>
 
 </body>

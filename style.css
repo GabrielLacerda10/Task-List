@@ -30,7 +30,7 @@ header p {
 
 main {
     width: 90%;
-    max-width: 900px;
+    max-width: 850px;
     margin: 30px auto;
     flex: 1;
 }
@@ -80,7 +80,47 @@ footer {
     padding: 15px;
 }
 
-/* Rodada 2 - Filtros */
+/* Formulário - Dev A */
+
+#form-tarefa {
+    margin-bottom: 25px;
+}
+
+#form-tarefa label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.formulario input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.btn-adicionar {
+    background-color: #2563eb;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-adicionar:hover {
+    background-color: #1d4ed8;
+}
+
+/* Filtros - Dev B */
 
 .filtros {
     display: flex;
